@@ -1,7 +1,6 @@
 package com.lambdaschool;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class Main {
 
@@ -9,7 +8,7 @@ public class Main {
 	// write your code here
         DecimalFormat df = new DecimalFormat("$###,###.00");
 
-        ArrayList<Money> piggyBank = new ArrayList<>();
+        MoneyHolder piggyBank = new MoneyHolder();
         piggyBank.add(new Quarter());
         piggyBank.add(new Dime());
         piggyBank.add(new Dollar(5));
@@ -19,16 +18,12 @@ public class Main {
         piggyBank.add(new Penny(10));
 
         System.out.println("****MONEY ADDED INTO PIGGYBANK****");
-        piggyBank.forEach(money -> System.out.println(money));
+        System.out.println(piggyBank);
 
 
         // Total Value
-        double total = 0;
-        for (Money m : piggyBank)
-        {
-            total += m.getTotalValue();
-        }
 
-        System.out.println("\nThe piggy bank holds " + df.format(total));
+
+        System.out.println("\nThe piggy bank holds " + df.format(piggyBank.getTotalCash()));
     }
 }
