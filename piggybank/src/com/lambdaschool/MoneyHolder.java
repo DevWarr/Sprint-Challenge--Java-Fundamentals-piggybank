@@ -1,36 +1,54 @@
 package com.lambdaschool;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MoneyHolder
 {
-    private ArrayList<Money> moneyList;
+    private HashMap<Money, Integer> moneyIntegerHashMap;
 
     public MoneyHolder()
     {
-        this.moneyList = new ArrayList<>();
+        this.moneyIntegerHashMap = new HashMap<>();
     }
 
     public void add(Money m)
     {
-        moneyList.add(m);
+        if (moneyIntegerHashMap.containsKey(m))
+        {
+            moneyIntegerHashMap.put(m, moneyIntegerHashMap.get(m) + 1);
+        }
+        moneyIntegerHashMap.put(m, 1);
     }
 
-    public double getTotalCash() {
-        double total = 0;
-        for (Money m : moneyList)
+    public void add(Money m, int quantity)
+    {
+        if (moneyIntegerHashMap.containsKey(m))
         {
-            total += m.getTotalValue();
+            moneyIntegerHashMap.put(m, moneyIntegerHashMap.get(m) + quantity);
+        }
+        moneyIntegerHashMap.put(m, quantity);
+    }
+
+    public double getTotalValue() {
+        double total = 0;
+        for (HashMap.Entry<Money, Integer> m : moneyIntegerHashMap.entrySet())
+        {
+            total += m.getKey().getTotalValue(m.getValue());
         }
         return total;
+    }
+
+    public void removeMoney(double amount)
+    {
+
     }
 
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder("\n");
-        for (Money m : moneyList)
+        for (HashMap.Entry<Money, Integer> m : moneyIntegerHashMap.entrySet())
         {
-            str.append(m).append("\n");
+            str.append(m.getKey().display(m.getValue())).append("\n");
         }
         return str.toString();
     }

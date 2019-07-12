@@ -1,31 +1,31 @@
 package com.lambdaschool;
 
-public abstract class Money
+public class Money
 {
     private String name;
-    int quantity;
     private double value;
 
-    Money(String name, int quantity, double value)
+    Money(String name, double value)
     {
         this.name = name;
-        this.quantity = quantity;
         this.value = value;
     }
 
-    public double getTotalValue()
+    public double getValue()
+    {
+        return value;
+    }
+
+    public double getTotalValue(int quantity)
     {
         return quantity * value;
     }
 
-    public void addQuantity(int quantity)
-    {
-        this.quantity += quantity;
-    }
-
-
-    @Override
-    public String toString() {
+    public String display(int quantity) {
+        if (name == "Dollar")
+        {
+            return "$" + quantity;
+        }
         if (quantity > 1)
         {
             return quantity + " " + name + "s";
