@@ -26,6 +26,10 @@ public abstract class Money
 
     @Override
     public String toString() {
+        if (quantity > 1)
+        {
+            return quantity + " " + name + "s";
+        }
         return quantity + " " + name;
     }
 }

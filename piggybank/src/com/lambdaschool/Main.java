@@ -17,5 +17,18 @@ public class Main {
         piggyBank.add(new Dime(7));
         piggyBank.add(new Dollar());
         piggyBank.add(new Penny(10));
+
+        System.out.println("****MONEY ADDED INTO PIGGYBANK****");
+        piggyBank.forEach(money -> System.out.println(money));
+
+
+        // Total Value
+        double total = 0;
+        for (Money m : piggyBank)
+        {
+            total += m.getTotalValue();
+        }
+
+        System.out.println("\nThe piggy bank holds " + df.format(total));
     }
 }
