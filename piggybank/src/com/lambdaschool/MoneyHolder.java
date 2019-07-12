@@ -17,7 +17,10 @@ public class MoneyHolder
         {
             moneyIntegerHashMap.put(m, moneyIntegerHashMap.get(m) + 1);
         }
-        moneyIntegerHashMap.put(m, 1);
+        else
+        {
+            moneyIntegerHashMap.put(m, 1);
+        }
     }
 
     public void add(Money m, int quantity)
@@ -26,7 +29,10 @@ public class MoneyHolder
         {
             moneyIntegerHashMap.put(m, moneyIntegerHashMap.get(m) + quantity);
         }
-        moneyIntegerHashMap.put(m, quantity);
+        else
+        {
+            moneyIntegerHashMap.put(m, quantity);
+        }
     }
 
     public double getTotalValue() {
