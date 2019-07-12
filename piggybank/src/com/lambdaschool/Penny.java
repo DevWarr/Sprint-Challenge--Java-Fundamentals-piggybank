@@ -6,4 +6,9 @@ public class Penny extends Money
     {
         super("Penny", quantity, 0.01);
     }
+
+    public Penny()
+    {
+        super("Penny", 1, 0.01);
+    }
 }

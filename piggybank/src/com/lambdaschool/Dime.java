@@ -6,4 +6,9 @@ public class Dime extends Money
     {
         super("Dime", quantity, 0.10);
     }
+
+    public Dime()
+    {
+        super("Dime", 1, 0.10);
+    }
 }
