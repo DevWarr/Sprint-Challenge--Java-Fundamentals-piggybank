@@ -27,9 +27,17 @@ public class Main {
 
         // Total Value
         DecimalFormat df = new DecimalFormat("$###,###.00");
-        System.out.println("\nThe piggy bank holds " + df.format(piggyBank.getTotalValue()));
+        System.out.println("\nThe piggy bank holds " + df.format(piggyBank.getTotalValue()) + "\n");
 
-        // Removing money
+
+        //======================STRETCH=====================//
+
+        // Removing money (by type)
+        System.out.println(piggyBank.removeMoney(dollar, 3));
+        System.out.println(piggyBank);
+        System.out.println("\nThe piggy bank holds " + df.format(piggyBank.getTotalValue()) + "\n");
+
+        // Removing a money (by amount)
 
     }
 }
